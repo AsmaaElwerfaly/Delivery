@@ -80,9 +80,33 @@
 								<div class="d-flex justify-content-between">
 								</div>
                                 <a class=" btn btn-outline-primary " href="{{ url('/' . $page='AddShipment') }}" > إضافة شحنة +</a>
+
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
+                                    <br>
+                                  
+                                    <div >
+                                    <form action="{{route('search.store')}}" method="POST"  autocomplete="off">
+                                        {{ csrf_field() }}     
+                                        <div class="row">
+                                                                     
+                                            <div class="col">
+                                                <input type="text" class="form-control"  name="cargo_code" placeholder="بحث بكود الطرد ">
+                                            </div>  
+                                            <div class="col">
+
+                                                <button class=" btn btn-outline-primary "><i class="las la-search"></i></button>
+                                            </div>  
+          
+                                          </form>
+                                      </div>
+                                       
+
+
+                                         
+
+
 									<table class="dataTables_wrapper dt-bootstrap4" id="example2">
 										<thead>
                                             <tr>
@@ -99,6 +123,8 @@
                                                 <th >عدد الطرود   </th>
                                                 <th >رصيد البضائع </th>
                                                 <th >رصيد العمولة  </th>
+                                                <th >رصيد الطلب  </th>
+
                                                 <th >ملاحظات الطرد   </th>
                                                 <th >المدينة </th>
                                                 <th >المنطقة </th>
@@ -130,6 +156,7 @@
                                                 <td>{{$x->count_cargo}}</td>
                                                 <td>{{$x->balance_cargo}}</td>
                                                 <td>{{$x->balance_commossion}}</td>
+                                                <td>{{$x->balance_order}}</td>
                                                 <td>{{$x->package_notes}}</td>
                                                 <td>{{$x->city}}</td>
                                                 <td>{{$x->part}}</td>
@@ -143,7 +170,7 @@
                                                     <a class="modal-effect btn btn-sm btn-primary" data-effect="effect-scale"
                                                         data-id="{{ $x->id }}"   data-branche_id="{{ $x->branche_id }}" data-name_represent="{{ $x->represents->name_represent ?? ' لا يوجد'}}"
                                                         data-toggle="modal"
-                                                        href="#exampleModal2" title="اسناد"><i class="las la-user"></i></a>
+                                                        href="#exampleModal2" title="اسناد مندوب"><i class="las la-user"></i></a>
 
                                                         <a class="modal-effect btn btn-sm btn-info" data-effect="effect-scale"
                                                         data-id="{{ $x->id }}" data-condition_cargo="{{ $x->condition_cargo }}"
@@ -190,9 +217,9 @@
                             <label for="exampleInputEmail1" class="control-label">المندوب </label>
                             <select class='form-control' name='name_represent' id="name_represent" >
                                 <!--placeholder-->
-                                @foreach ($bracnh_rep as $bracnh_rep)
+                                @foreach ($Branch as $Branch)
 
-                                <option > {{$bracnh_rep->name_represent}}</option>
+                                <option > {{$Branch->name_represent}}</option>
                                 @endforeach
                                 </select>
                         </div>

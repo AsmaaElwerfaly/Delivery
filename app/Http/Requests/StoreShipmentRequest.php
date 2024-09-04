@@ -37,6 +37,8 @@ class StoreShipmentRequest extends FormRequest
              'count_cargo' => 'required',
              'balance_cargo' => 'required|numeric',
              'balance_commossion' => 'required|numeric',
+             'balance_order' => 'required|numeric',
+
              'cargo_code' => 'required',
              'city' => 'required|regex:/^[\p{Arabic}\p{Latin} ]+$/u',
              'part' => 'required|regex:/^[\p{Arabic}\p{Latin} ]+$/u',
@@ -81,6 +83,9 @@ class StoreShipmentRequest extends FormRequest
 
             'balance_commossion.required' => 'يجب إدخال  رصيد العموله ',
             'balance_commossion.numeric'=>'يجب إدخال الرصيد كرقم ',  
+
+            'balance_order.required' => 'يجب إدخال  رصيد الطلب ',
+            'balance_order.numeric'=>'يجب إدخال الرصيد كرقم ', 
 
             'cargo_code.required' => 'يجب إدخال كود الطرد ',
 

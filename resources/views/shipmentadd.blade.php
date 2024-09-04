@@ -118,10 +118,7 @@
                                                 <div class="col">
 													<label for="inputName" class="control-label">     كود الطرد  </label>
 													<input type="text" class="form-control" id="inputName" name="cargo_code" autocomplete="off" >
-												</div>
-												
-
-                                               
+												</div>                                               
 
 
                                              
@@ -165,7 +162,14 @@
 													<label for="inputName" class="control-label">    رصيد العموله  </label>
 													<input type="text" class="form-control" id="inputName" name="balance_commossion" autocomplete="off"
 													 >
+												</div>		
+												
+												<div class="col">
+													<label for="inputName" class="control-label">    رصيد الطلب  </label>
+													<input type="text" class="form-control" id="inputName" name="balance_order" autocomplete="off"
+													 >
 												</div>			
+
                                                 <div class="col">
 													<label for="inputName" class="control-label">    المدينة   </label>
 													<input type="text" class="form-control" id="inputName" name="city" autocomplete="off"

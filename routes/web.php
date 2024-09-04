@@ -6,9 +6,13 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\RepresentController;
 use App\Http\Controllers\RepresentController2;
 use App\Http\Controllers\ShipmentController;
+use App\Http\Controllers\shipmentdetialsController;
+
 use App\Http\Controllers\AddShipmentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SearchController;
+
 
 
 Route::get('/', function () {
@@ -19,7 +23,8 @@ Route::get('/', function () {
 
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -35,8 +40,10 @@ Route::resource( 'Shipment' ,ShipmentController::class);
 
 Route::resource( 'AddShipment' ,AddShipmentController::class);
 
+Route::post('search',[ SearchController::class ,'store'])->name('search.store');
 
 
+Route::get('/shipmentdetials/{id}',[shipmentdetialsController::class,'show']);
 
 Route::middleware('auth')->group(function () {
     

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('count_cargo');
             $table->double('balance_cargo');
             $table->double('balance_commossion');
+            $table->double('balance_order');
             $table->string('cargo_code');
             $table->string('city');
             $table->string('part');

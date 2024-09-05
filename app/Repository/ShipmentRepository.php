@@ -28,13 +28,24 @@ class ShipmentRepository implements ShipmentInterface {
     public function index()
     {
         $Branch = Branch::latest()->get();
-
         $bracnh_rep = Represent::where('branche_id',auth()->user()->branche_id)->get();
 
-        $Shipment=Shipment::where('branche_id',auth()->user()->branche_id)->get();
 
+        if(  auth()->user()->branche_id == 1)
+        {
+       
+            $Shipment=Shipment::latest()->get();
+
+        }
+        else{
+
+           $Shipment=Shipment::where('branche_id',auth()->user()->branche_id)->get();
+
+        }
         return view('Shipment', compact('Branch','bracnh_rep','Shipment'));
-    }
+
+
+}
 
     
     public function store(StoreShipmentRequest $request)

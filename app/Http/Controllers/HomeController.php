@@ -29,10 +29,13 @@ class HomeController extends Controller
         $countBranch=Branch::count();
         $countRepresent=Represent::count();
         $countShipment=Shipment::count();
+        $sum_commossion=Shipment::sum("balance_commossion");
+        $sum_order=Shipment::sum("balance_order");
+
  
  
  
  
-        return view('home',compact('countBranch','countRepresent','countShipment'));
+        return view('home',compact('countBranch','countRepresent','countShipment','sum_commossion','sum_order'));
     }
 }

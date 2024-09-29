@@ -39,6 +39,7 @@ Route::resource( 'represent2' ,RepresentController2::class);
 Route::resource( 'Shipment' ,ShipmentController::class);
 
 Route::resource( 'AddShipment' ,AddShipmentController::class);
+Route::get('print/{id}',[ShipmentController::class,'print']);
 
 Route::post('search',[ SearchController::class ,'store'])->name('search.store');
 

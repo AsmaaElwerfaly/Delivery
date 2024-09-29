@@ -176,7 +176,9 @@
                                                         data-id="{{ $x->id }}" data-condition_cargo="{{ $x->condition_cargo }}"
                                                         data-toggle="modal"
                                                         href="#exampleModal3" title="تعديل الحاله"><i class="las la-pen"></i></a>
-                                              
+
+                                                        <a type="button" class="btn btn-sm btn-success" href="print/{{ $x->id }}"><i class=" fas fa-print" title="طباعة "></i></a>
+
                                                                                             
                                             </td>
                                         </tr>

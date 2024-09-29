@@ -46,6 +46,17 @@ class ShipmentController extends Controller
   
    
 
+      public function print( $id)
+      {       
+        $Shipment=Shipment::findorfail($id);
+        $Branch = Branch::latest()->get();
+        $Represent = Represent::latest()->get();
+
+
+          return view('print',compact('Shipment','Branch','Represent'));
+  
+      }
+
     
 
     

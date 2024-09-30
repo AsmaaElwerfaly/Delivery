@@ -152,7 +152,7 @@
                                                 <td>{{$x->represent_num}}</td>
                                                 <td>{{$x->cargo_code}}</td>
                                                 <td>{{$x->openable}}</td>
-                                                <td>{{$x->condition_cargo}}</td>
+                                                <td>{{$x->condition_cargo ?? 'جاري الارسال'}}</td>
                                                 <td>{{$x->count_cargo}}</td>
                                                 <td>{{$x->balance_cargo}}</td>
                                                 <td>{{$x->balance_commossion}}</td>
@@ -219,9 +219,9 @@
                             <label for="exampleInputEmail1" class="control-label">المندوب </label>
                             <select class='form-control' name='name_represent' id="name_represent" >
                                 <!--placeholder-->
-                                @foreach ($Branch as $Branch)
+                                @foreach ($bracnh_rep as $bracnh_rep)
 
-                                <option > {{$Branch->name_represent}}</option>
+                                <option > {{$bracnh_rep->name_represent}}</option>
                                 @endforeach
                                 </select>
                         </div>
@@ -255,13 +255,16 @@
                     {{ csrf_field() }}
 
                                 <div class="form-group">
-                                   <input type="text" name="id" id="id" value="">
+                                   <input type="hidden" name="id" id="id" value="">
                                 </div>
                     
                                 <div class="col">
-                                    <label for="inputName" class="control-label">     حالة الطرد  </label>
-                                    <input type="text" class="form-control" id="inputName" name="condition_cargo" autocomplete="off"
-                                         >
+                                    <label for="inputName" class="control-label">  حالة الطرد </label>
+                                    <select class='form-control' name='condition_cargo' >
+                                        <option value="" selected>اختار من القائمة</option>
+                                        <option value="تم التسليم ">تم التسليم</option>
+                                        <option value="ارجاع مبيعات">ارجاع مبيعات</option>
+                                    </select>
                                 </div>
                    
                    

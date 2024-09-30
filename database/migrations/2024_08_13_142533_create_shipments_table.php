@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('represent_num');
             $table->string('package_notes')->nullable();
             $table->string('openable');
-            $table->string('condition_cargo');
+            $table->string('condition_cargo')->nullable();
             $table->string('count_cargo');
             $table->double('balance_cargo');
             $table->double('balance_commossion');

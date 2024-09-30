@@ -2,16 +2,23 @@
 @section('css')
     <style>
         @media print {
+            @page {
+                size: a5; 
+                margin: 2%;
+                text-align: center;
+                font-size: 15px;
+            }
             #print_Button {
                 display: none;
             }
+
+        
+           
         }
 
     </style>
 @endsection
-@section('title')
-    معاينه طباعة الفاتورة
-@stop
+
 @section('page-header')
     <!-- breadcrumb -->
     <div class="breadcrumb-header justify-content-between">
@@ -37,20 +44,20 @@
                                 <br><br>
                                 <h3 style="text-align:center;">شركة واصل بيتك </h3>
 											<h4 style="text-align:center;">    لخدمات التوصيل</h4>
-                                   <br>
+                                   <br><br>
                                 </div><!-- billed-from -->
                             </div><!-- invoice-header -->
                         <div class="row mg-t-20">
                            
                             <div class="col-md">
-                                <p class="invoice-info-row"><span>رقم المرسل </span>
+                                <p class="invoice-info-row" style="font-size: 1rem"><span>رقم المرسل </span>
                                     <span>{{$Shipment->sender_num}}</span></p>
-                                <p class="invoice-info-row"><span>رقم المستلم </span>
+                                <p class="invoice-info-row" style="font-size: 1rem"><span>رقم المستلم </span>
                                     <span>{{$Shipment->represent_num}}</span></p>
                                     @php
                                     $total = $Shipment->balance_cargo + $Shipment->balance_commossion + $Shipment->balance_order ;
                                     @endphp
-                                <p class="invoice-info-row"><span>الاجمالي </span>
+                                <p class="invoice-info-row" style="font-size: 1rem"><span>الاجمالي </span>
                                     <span>{{$total}}</span></p>
                               
                             </div>
@@ -81,9 +88,10 @@
 
                                     </tr>
                                     <tr>
-                                        <td class="tx-right tx-uppercase tx-bold tx-inverse">الاجمالي  </td>
+                                       
+                                        <td class="tx-right tx-uppercase tx-bold tx-inverse" style="font-size: 1rem">الاجمالي  </td>
                                         <td class="tx-right" colspan="2">
-                                            <h4 class="tx-primary tx-bold">{{$total}}</h4>
+                                            <h4 class="tx-primary tx-bold" style="font-size: 1rem">{{$total}}</h4>
                                         </td>
                                     </tr>
                                 </tbody>

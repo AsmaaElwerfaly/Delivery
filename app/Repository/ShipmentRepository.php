@@ -28,7 +28,7 @@ class ShipmentRepository implements ShipmentInterface {
     public function index()
     {
         $Branch = Branch::latest()->get();
-        $bracnh_rep = Represent::where('branche_id',auth()->user()->branche_id)->get();
+        $bracnh_rep = Represent::all();
 
 
         if(  auth()->user()->branche_id == 1)
@@ -102,7 +102,6 @@ class ShipmentRepository implements ShipmentInterface {
 
         $id = Represent::where('name_represent', $request->name_represent)->first()->id;
         $input = Shipment::findOrFail($request->id);
-        $Branch = Represent::where('branche_id',auth()->user()->branche_id)->get();
 
         $input->represent_id = $id;
 

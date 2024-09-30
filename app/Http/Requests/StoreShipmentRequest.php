@@ -33,7 +33,6 @@ class StoreShipmentRequest extends FormRequest
              'represent_num'=>'required|string|regex:/^[0-9]+$/|digits:10|', 
 
              'openable' => 'required',
-             'condition_cargo' => 'required',
              'count_cargo' => 'required',
              'balance_cargo' => 'required|numeric',
              'balance_commossion' => 'required|numeric',
@@ -72,7 +71,6 @@ class StoreShipmentRequest extends FormRequest
 
             'openable.required' => 'يجب إختيار نعم/لا ',
 
-            'condition_cargo.required' => 'يجب إختيار  حالة الطرد',
             'count_cargo.required' => 'يجب إدخال عدد الطرود ',
 
 

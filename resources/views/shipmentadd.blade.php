@@ -134,12 +134,7 @@
 														<option value="لا">لا</option>
 													</select>
 												</div>
-                                                <div class="col">
-													<label for="inputName" class="control-label">     حالة الطرد  </label>
-													<input type="text" class="form-control" id="inputName" name="condition_cargo" autocomplete="off"
-														 >
-												</div>
-                                                
+                                             
                                                     <div class="col">
                                                         <label for="inputName" class="control-label">    عدد الطرود  </label>
                                                         <input type="text" class="form-control" id="inputName" name="count_cargo" autocomplete="off"

@@ -31,7 +31,7 @@ class AddShipmentController extends Controller
                   
         ],[
 
-            'condition_cargo.required' =>'ادخال الاسم ',
+            'condition_cargo.required' =>'اختر حالة الطلب  ',
             
         ]);
 

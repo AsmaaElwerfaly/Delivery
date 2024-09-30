@@ -10166,9 +10166,9 @@ a.close.disabled {
   h2, h3 {
     page-break-after: avoid; }
   @page {
-    size: a3; }
+    size: a5; }
   body, .container {
-    min-width: 992px !important; } }
+    min-width: 800px !important; } }
 
 /* ########## BOOTSTRAP OVERRIDES ########## */
 /* ############### PAGE LAYOUT STYLES ############### */

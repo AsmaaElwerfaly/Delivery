@@ -48,12 +48,28 @@
                                 </div><!-- billed-from -->
                             </div><!-- invoice-header -->
                         <div class="row mg-t-20">
-                           
                             <div class="col-md">
+                                <p class="invoice-info-row" style="font-size: 1rem"><span>اسم المرسل </span>
+                                    <span>{{$Shipment->sender_name}}</span></p>
+
                                 <p class="invoice-info-row" style="font-size: 1rem"><span>رقم المرسل </span>
                                     <span>{{$Shipment->sender_num}}</span></p>
+
+                                    <p class="invoice-info-row" style="font-size: 1rem"><span>اسم المستلم </span>
+                                        <span>{{$Shipment->represent_name}}</span></p>
+                                    
                                 <p class="invoice-info-row" style="font-size: 1rem"><span>رقم المستلم </span>
                                     <span>{{$Shipment->represent_num}}</span></p>
+
+                                    <p class="invoice-info-row" style="font-size: 1rem"><span>المدينة  </span>
+                                        <span>{{$Shipment->city}}</span></p>
+
+                                        <p class="invoice-info-row" style="font-size: 1rem"><span>المنطقة  </span>
+                                            <span>{{$Shipment->part}}</span></p>
+
+                                            <p class="invoice-info-row" style="font-size: 1rem"><span>كود الطرد  </span>
+                                                <span>{{$Shipment->cargo_code}}</span></p>
+                                            
                                     @php
                                     $total = $Shipment->balance_cargo + $Shipment->balance_commossion + $Shipment->balance_order ;
                                     @endphp

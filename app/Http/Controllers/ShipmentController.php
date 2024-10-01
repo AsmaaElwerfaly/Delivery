@@ -46,6 +46,8 @@ class ShipmentController extends Controller
   
    
 
+    
+      
       public function print( $id)
       {       
         $Shipment=Shipment::findorfail($id);

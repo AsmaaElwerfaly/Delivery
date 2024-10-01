@@ -6,6 +6,7 @@ use App\Models\Shipment;
 
 use App\Models\Represent;
 use App\Models\Branch;
+use App\Http\Requests\updateShipmentRequest;
 
 use Illuminate\Http\Request;
 
@@ -23,29 +24,40 @@ class AddShipmentController extends Controller
 
 
 
-    public function update(Request $request, Shipment $shipment)
+    public function update(updateShipmentRequest $request, Shipment $shipment)
     {
         
-        $validatedData = $request->validate([
-            'condition_cargo' => 'required',
-                  
-        ],[
-
-            'condition_cargo.required' =>'اختر حالة الطلب  ',
-            
-        ]);
+        $id = Branch::where('branche_name', $request->branche_name)->first()->id;
 
         $input = Shipment::findOrFail($request->id);
 
+        $input->branche_id = $id;
+
         $input->condition_cargo = $request->condition_cargo;
+        $input->customer_code = $request->customer_code;
+        $input->customer_name = $request->customer_name;
+        $input->sender_name = $request->sender_name;
+        $input->represent_name = $request->represent_name;
+        $input->sender_num = $request->sender_num;
+        $input->represent_num = $request->represent_num;
+        $input->package_notes = $request->package_notes;
+        $input->openable = $request->openable;
+        $input->count_cargo = $request->count_cargo;
+        $input->balance_cargo = $request->balance_cargo;
+        $input->balance_commossion = $request->balance_commossion;
+        $input->balance_order = $request->balance_order;
+        $input->cargo_code = $request->cargo_code;
+        $input->city = $request->city;
+        $input->part = $request->part;
+        $input->city_code = $request->city_code;
+
+        
 
         $input->save();
 
         session()->flash('edit', 'تم تعديل البيانات بنجاج');
         return back();
     }
-    
-    
     
 
 }

@@ -14,8 +14,24 @@ class SearchController extends Controller
    
     public function index()
     {
-       
+        
+        $Branch = Branch::latest()->get();
+        $bracnh_rep = Represent::all();
 
+
+
+        if(  auth()->user()->branche_id == 1)
+        {
+       
+            $Shipment=Shipment::latest()->get();
+
+        }
+        else{
+
+           $Shipment=Shipment::where('branche_id',auth()->user()->branche_id)->get();
+
+        }
+        return view('Shipment', compact('Branch','bracnh_rep','Shipment'));
 
 
     }
@@ -29,8 +45,9 @@ class SearchController extends Controller
    
     public function store(Request $request)
     {  
-           
-        $Represent = Represent::latest()->get();
+        // $bracnh_rep = Represent::all();
+
+        $bracnh_rep = Represent::latest()->get();
         $Branch = Branch::latest()->get();
     $Shipment =Shipment::latest()->get();
 
@@ -40,14 +57,14 @@ class SearchController extends Controller
        
             $Shipment=Shipment::select('*')->where('cargo_code', $request->cargo_code)->get();
             $cargo_code=$request->cargo_code;
-            return view('shipment',compact('Shipment','Branch','Represent'));
+            return view('shipment',compact('Shipment','Branch','bracnh_rep'));
         }
         else{
             
       
         $Shipment=Shipment::select('*')->where('cargo_code', $request->cargo_code)->where('branche_id',auth()->user()->branche_id)->get();
         $cargo_code=$request->cargo_code;
-        return view('shipment',compact('Shipment','Branch','Represent'));
+        return view('shipment',compact('Shipment','Branch','bracnh_rep'));
         }
     }
 

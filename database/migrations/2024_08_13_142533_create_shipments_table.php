@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('customer_name');
             $table->string('sender_name');
             $table->string('represent_name');
-            $table->integer('sender_num');
-            $table->integer('represent_num');
+            $table->string('sender_num');
+            $table->string('represent_num');
             $table->string('package_notes')->nullable();
             $table->string('openable');
             $table->string('condition_cargo')->nullable();

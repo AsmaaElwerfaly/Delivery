@@ -76,8 +76,10 @@ class ShipmentRepository implements ShipmentInterface {
         'represent_id'=>$request->represent_id,
 
         ]);
-       
-     $users = User::where('id','!=',auth()->user()->id)->get();
+      
+
+     $users= User::select('*')->where('branche_id', $request->branche_id)->where('id','!=',auth()->user()->id)->get();
+
      $user_create = auth()->user()->name;
      Notification::send($users, new shipmentnotif($input->id,$user_create));
 

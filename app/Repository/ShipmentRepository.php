@@ -84,7 +84,7 @@ class ShipmentRepository implements ShipmentInterface {
      $user_create = auth()->user()->name;
      $msg='   تم إضافة شحنة جديدة  ';
    
-     Notification::send($users, new shipmentnotif($input->id,$user_create,$msg));
+     Notification::send($users, new shipmentnotif($user_create,$msg,$input->package_notes)); 
 
 
 

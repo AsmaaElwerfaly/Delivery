@@ -59,9 +59,10 @@
 								</div>
 								<div class="mr-3">
 									<h5 class="notification-label mb-1">{{$Notifications->data['user_create']}}</h5>
-									<div class="notification-subtext">  الشحنه رقم ({{$Notifications->data['input_id']}})</div>
-									<div class="notification-subtext">   ({{$Notifications->data['msg']}})</div>
+									<div class="notification-subtext">   </div>
 
+									<div class="notification-subtext">      ({{$Notifications->data['msg']}}) </div>
+									<div class="notification-subtext"> {{$Notifications->data['package_notes']}}</div>
 								</div>
 								<div class="mr-auto" >
 									<i class="las la-angle-left text-left text-muted"></i>

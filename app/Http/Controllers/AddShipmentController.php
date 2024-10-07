@@ -67,7 +67,8 @@ class AddShipmentController extends Controller
 
             $user_create = auth()->user()->name;
             $msg='طلب مرتجع';
-            Notification::send($users, new updateshipmentnotif($input->id,$user_create,$msg)); 
+
+            Notification::send($users, new updateshipmentnotif($user_create,$msg,$input->package_notes)); 
 }      
         session()->flash('edit', 'تم تعديل البيانات بنجاج');
         return back();

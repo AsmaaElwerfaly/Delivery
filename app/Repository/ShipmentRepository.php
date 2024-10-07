@@ -39,7 +39,7 @@ class ShipmentRepository implements ShipmentInterface {
         }
         else{
 
-           $Shipment=Shipment::where('branche_id',auth()->user()->branche_id)->get();
+           $Shipment=Shipment::latest()->where('branche_id',auth()->user()->branche_id)->get();
 
         }
         return view('Shipment', compact('Branch','bracnh_rep','Shipment'));

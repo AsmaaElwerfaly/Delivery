@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('city');
             $table->string('part');
             $table->string('city_code');
+            $table->string('created_by');
 
             $table->bigInteger('branche_id')->unsigned();
             $table->foreign('branche_id')->references('id')->on('branches')->cascadeOnDelete();

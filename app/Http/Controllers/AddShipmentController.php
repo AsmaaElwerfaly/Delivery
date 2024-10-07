@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Shipment;
+use App\Models\User;
+use App\Notifications\updateshipmentnotif;
 
 use App\Models\Represent;
 use App\Models\Branch;
 use App\Http\Requests\updateShipmentRequest;
+use Illuminate\Support\Facades\Notification;
+
 
 use Illuminate\Http\Request;
 
@@ -31,6 +35,7 @@ class AddShipmentController extends Controller
 
         $input = Shipment::findOrFail($request->id);
 
+
         $input->branche_id = $id;
 
         $input->condition_cargo = $request->condition_cargo;
@@ -51,10 +56,19 @@ class AddShipmentController extends Controller
         $input->part = $request->part;
         $input->city_code = $request->city_code;
 
-        
+         $input->save();
 
-        $input->save();
+           
 
+
+         if(   $request->condition_cargo == "ارجاع مبيعات" )
+{
+            $users= User::select('*')->where('id',$input->created_by)->get();
+
+            $user_create = auth()->user()->name;
+            $msg='طلب مرتجع';
+            Notification::send($users, new updateshipmentnotif($input->id,$user_create,$msg)); 
+}      
         session()->flash('edit', 'تم تعديل البيانات بنجاج');
         return back();
     }

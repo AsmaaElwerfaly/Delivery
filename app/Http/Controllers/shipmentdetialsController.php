@@ -8,6 +8,7 @@ use App\Models\Shipment;
 
 use App\Models\Represent;
 use App\Models\Branch;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Support\Facades\DB;
 
 class shipmentdetialsController extends Controller
@@ -42,8 +43,8 @@ class shipmentdetialsController extends Controller
      */
     public function show($id)
     {
-        $Shipment=Shipment::findorFail($id);
-        $getid=DB::table('notifications')->where('data->input_id',$id)->pluck('id');
+        $notifications=DatabaseNotification::findorFail($id);
+        $getid=DB::table('notifications')->where('id',$id)->pluck('id');
         DB::table('notifications')->where('id',$getid)->update(['read_at'=>now()]);
         return redirect()->route('Shipment.index');
     }

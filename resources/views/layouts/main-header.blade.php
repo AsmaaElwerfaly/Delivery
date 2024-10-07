@@ -53,13 +53,15 @@
 						<div class="main-notification-list Notification-scroll">
 							
 							@foreach(Auth::user()->unreadNotifications as $Notifications)
-							<a class="d-flex p-3 border-bottom" href="{{url('shipmentdetials')}}/{{$Notifications->data['input_id']}}">
+							<a class="d-flex p-3 border-bottom" href="{{url('shipmentdetials')}}/{{$Notifications->id}}">
 								<div class="notifyimg bg-success">
 									<i class="la la-shopping-basket text-white"></i>
 								</div>
 								<div class="mr-3">
 									<h5 class="notification-label mb-1">{{$Notifications->data['user_create']}}</h5>
-									<div class="notification-subtext">تم إضافة شحنة جديدة ({{$Notifications->data['input_id']}})</div>
+									<div class="notification-subtext">  الشحنه رقم ({{$Notifications->data['input_id']}})</div>
+									<div class="notification-subtext">   ({{$Notifications->data['msg']}})</div>
+
 								</div>
 								<div class="mr-auto" >
 									<i class="las la-angle-left text-left text-muted"></i>

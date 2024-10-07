@@ -74,6 +74,7 @@ class ShipmentRepository implements ShipmentInterface {
         'city_code'=>$request->city_code,
         'branche_id'=>$request->branche_id,
         'represent_id'=>$request->represent_id,
+        'created_by' =>Auth::user()->id,
 
         ]);
       
@@ -81,7 +82,9 @@ class ShipmentRepository implements ShipmentInterface {
      $users= User::select('*')->where('branche_id', $request->branche_id)->where('id','!=',auth()->user()->id)->get();
 
      $user_create = auth()->user()->name;
-     Notification::send($users, new shipmentnotif($input->id,$user_create));
+     $msg='   تم إضافة شحنة جديدة  ';
+   
+     Notification::send($users, new shipmentnotif($input->id,$user_create,$msg));
 
 
 

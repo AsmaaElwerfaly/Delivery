@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class shipmentnotif extends Notification
+class updateshipmentnotif extends Notification
 {
     use Queueable;
 
@@ -22,7 +22,6 @@ class shipmentnotif extends Notification
 
        $this->user_create = $user_create;
        $this->msg = $msg;
-
     }
 
     /**
@@ -33,22 +32,23 @@ class shipmentnotif extends Notification
     public function via(object $notifiable): array
     {
         return ['database'];
-
     }
 
+   
+   
 
     /**
- * Get the array representation of the notification.
- *
- * @return array<string, mixed>
- */
-public function toArray(object $notifiable): array
-{
-    return [
-        'input_id' => $this->input_id,
-        'user_create' => $this->user_create,
-        'msg' => $this->msg,
-
-    ];
-}
+     * Get the array representation of the notification.
+     *
+     * @return array<string, mixed>
+     */
+    public function toArray(object $notifiable): array
+    {
+        return [
+            'input_id' => $this->input_id,
+            'user_create' => $this->user_create,
+            'msg' => $this->msg,
+    
+        ];
+    }
 }
